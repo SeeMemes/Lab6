@@ -1,0 +1,5 @@
+print_field_descending_mood
+clean
+save
+execute_script script.txt
+exit
