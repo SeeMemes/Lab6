@@ -25,7 +25,7 @@ public class ServerSide {
                 filewriter.close();
             } catch (IOException e1) {}
             serverCollection = new CollectionManager(name);
-            serverCollection.getHumans().creationDate_Now();
+            serverCollection.setCreationDate();
         }
         try (ServerSocket server = new ServerSocket(8800)) {
             System.out.print("Сервер начал слушать клиентов. " + "\nПорт " + server.getLocalPort() +

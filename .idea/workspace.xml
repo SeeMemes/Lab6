@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="Lab5:jar" />
+      <artifact name="Server:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
@@ -25,6 +25,7 @@
         <option value="package-info" />
         <option value="JavaFXApplication" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -58,29 +59,29 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Artifacts" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\Lab6\src" />
-      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\Lab6" />
-      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\SavageMode" />
-      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\SavageMode\src" />
-      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Server" />
-      <recent name="Exceptions" />
-      <recent name="Command" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\SavageMode" />
       <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\BadGuy\src" />
       <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Lab6\BadGuy\src" />
       <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Lab6\SavageMode\src" />
       <recent name="C:\Users\HOME\Desktop\Lab5" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Server" />
+      <recent name="Exceptions" />
+      <recent name="Command" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\Lab6" />
+      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\Lab6\src" />
+      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\SavageMode" />
+      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6\SavageMode\src" />
+      <recent name="C:\Users\Владимир\Desktop\Университет\Программирование\Лаба6" />
     </key>
   </component>
   <component name="RunManager" selected="Application.ServerSide">
@@ -104,6 +105,7 @@
       </envs>
       <option name="MAIN_CLASS_NAME" value="Server.ServerSide" />
       <module name="Lab5" />
+      <option name="PROGRAM_PARAMETERS" value="New_File.xml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Server.Request" />
@@ -186,7 +188,14 @@
       <workItem from="1589149242849" duration="645000" />
       <workItem from="1589186833031" duration="18711000" />
       <workItem from="1589232723840" duration="3206000" />
-      <workItem from="1589801115364" duration="5363000" />
+      <workItem from="1589801115364" duration="5946000" />
+      <workItem from="1589819923928" duration="3442000" />
+      <workItem from="1589842546501" duration="1701000" />
+      <workItem from="1589844345574" duration="8000" />
+      <workItem from="1589844388470" duration="385000" />
+      <workItem from="1590134289468" duration="8129000" />
+      <workItem from="1590571668991" duration="8654000" />
+      <workItem from="1590740363169" duration="1607000" />
     </task>
     <servers />
   </component>
@@ -216,10 +225,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="279" key="#com.intellij.codeInsight.editorActions.RestoreReferencesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1582151168695" />
-    <state x="636" y="216" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1589071073427">
+    <state x="636" y="216" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1590575183093">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="636" y="216" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1589071073427" />
+    <state x="636" y="216" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1590575183093" />
     <state x="724" y="331" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583433625732">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -233,10 +242,10 @@
     </state>
     <state x="765" y="228" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1032@0.0.1920.1032" timestamp="1589209176308" />
     <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1583443946941" />
-    <state x="690" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1581896562864">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1589822876325">
+      <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="690" y="310" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581896562864" />
+    <state x="690" y="308" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1589822876325" />
     <state x="780" y="397" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1586787864332">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
@@ -257,7 +266,6 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="690" y="269" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1589231370133" />
-    <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581890336555" />
     <state x="722" y="287" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1584657635143">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -270,34 +278,34 @@
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
     <state x="856" y="274" key="EnvironmentVariablesDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1589071066563" />
-    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1589807324238">
+    <state x="740" y="277" key="FileChooserDialogImpl" timestamp="1589822892777">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1589807324238" />
+    <state x="740" y="277" key="FileChooserDialogImpl/0.0.1920.1032@0.0.1920.1032" timestamp="1589822892777" />
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584657905161" />
     <state x="798" y="422" width="347" height="195" key="Github.CreateGistDialog" timestamp="1583424184860">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="798" y="422" width="347" height="195" key="Github.CreateGistDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583424184860" />
-    <state width="1864" height="259" key="GridCell.Tab.0.bottom" timestamp="1589806649459">
+    <state width="1864" height="259" key="GridCell.Tab.0.bottom" timestamp="1590580608754">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1864" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1589806649459" />
+    <state width="1864" height="259" key="GridCell.Tab.0.bottom/0.0.1920.1032@0.0.1920.1032" timestamp="1590580608754" />
     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584658308233" />
-    <state width="1864" height="259" key="GridCell.Tab.0.center" timestamp="1589806649459">
+    <state width="1864" height="259" key="GridCell.Tab.0.center" timestamp="1590580608754">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1864" height="259" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1589806649459" />
+    <state width="1864" height="259" key="GridCell.Tab.0.center/0.0.1920.1032@0.0.1920.1032" timestamp="1590580608754" />
     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584658308233" />
-    <state width="1864" height="259" key="GridCell.Tab.0.left" timestamp="1589806649459">
+    <state width="1864" height="259" key="GridCell.Tab.0.left" timestamp="1590580608754">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1864" height="259" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1589806649459" />
+    <state width="1864" height="259" key="GridCell.Tab.0.left/0.0.1920.1032@0.0.1920.1032" timestamp="1590580608754" />
     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584658308233" />
-    <state width="1864" height="259" key="GridCell.Tab.0.right" timestamp="1589806649459">
+    <state width="1864" height="259" key="GridCell.Tab.0.right" timestamp="1590580608754">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state width="1864" height="259" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1589806649459" />
+    <state width="1864" height="259" key="GridCell.Tab.0.right/0.0.1920.1032@0.0.1920.1032" timestamp="1590580608754" />
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584658308233" />
     <state width="1864" height="321" key="GridCell.Tab.1.bottom" timestamp="1589109316290">
       <screen x="0" y="0" width="1920" height="1032" />
@@ -319,15 +327,15 @@
     </state>
     <state width="1864" height="321" key="GridCell.Tab.1.right/0.0.1920.1032@0.0.1920.1032" timestamp="1589109316290" />
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1582239872691" />
-    <state x="440" y="97" key="SettingsEditor" timestamp="1589807327415">
+    <state x="440" y="0" key="SettingsEditor" timestamp="1589822906054">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="440" y="97" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1589807327415" />
+    <state x="440" y="0" key="SettingsEditor/0.0.1920.1032@0.0.1920.1032" timestamp="1589822906054" />
     <state x="440" y="98" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1582325033351" />
-    <state x="668" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1589801118037">
+    <state x="668" y="346" key="com.intellij.ide.util.TipDialog" timestamp="1590742543049">
       <screen x="0" y="0" width="1920" height="1032" />
     </state>
-    <state x="668" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1589801118037" />
+    <state x="668" y="346" key="com.intellij.ide.util.TipDialog/0.0.1920.1032@0.0.1920.1032" timestamp="1590742543049" />
     <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1584657782396" />
     <state x="771" y="440" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583423859421">
       <screen x="0" y="0" width="1920" height="1040" />

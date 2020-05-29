@@ -220,7 +220,7 @@ public class Main {
             human = Converter.сonvertToLinkedHashMap((Parser.getHumanList()));
         } catch (NullPointerException e){}
         HumanList humanList = new HumanList();
-        humanList.creationDate_Now();
+        humanList.setCreationDate();
         humanList.setHumanBeings(Converter.convertToList(human));
 
         while (b || reader.ready()) {

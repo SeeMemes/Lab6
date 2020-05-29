@@ -12,6 +12,8 @@ import java.net.SocketException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Objects;
+import java.util.Scanner;
+import java.util.logging.Logger;
 
 /**
  * Класс {@code ServerConnection} представляет объект сервера, который манипулирует {@link CollectionManager}.
@@ -37,7 +39,7 @@ public class ServerConnection implements Runnable {
         LinkedHashMap<String, Command> commandList = new LinkedHashMap<>();
         HumanList humanList = serverCollection.getHumans();
         LinkedHashMap<Integer, HumanBeing> human = serverCollection.getHuman();
-        commandList.put("save", new Save(human, "save", humanList));
+        commandList.put("you_cannot_save_from_client", new Save(human, "save", humanList));
         commandList.put("info", new Info(human, "info", humanList));
         commandList.put("exit", new Exit(human, "exit", humanList));
         commandList.put("help", new Help(human, "help", humanList));
@@ -61,6 +63,8 @@ public class ServerConnection implements Runnable {
      */
     @Override
     public void run() {
+        InputStreamReader reader = new InputStreamReader(System.in);
+        BufferedReader bufferedReader = new BufferedReader(reader);
         try (ObjectInputStream getFromClient = new ObjectInputStream(incoming.getInputStream());
              ObjectOutputStream sendToClient = new ObjectOutputStream(incoming.getOutputStream())) {
             sendToClient.writeObject("Соединение установлено.\nВы можете вводить команды.");
@@ -72,6 +76,28 @@ public class ServerConnection implements Runnable {
             };
             while (true) {
                 try {
+                    Thread th = new Thread(() -> {
+                        while (true){
+                            try {
+                                String command = bufferedReader.readLine();
+                                if (command.toLowerCase().equals("save")) {
+                                    Save save = new Save(serverCollection.getHuman(), "save", serverCollection.getHumans());
+                                    save.execute(serverCollection.getHuman(), "", serverCollection.getHumans(),
+                                            serverCollection.getCollectionPath(), true);
+                                    System.out.println("Файл сохранен");
+                                }
+                                else if (command.toLowerCase().equals("exit")) {
+                                    commandList.get("you_cannot_save_from_client").execute();
+                                    System.out.println("Завершение программы");
+                                    System.exit(0);
+                                }
+                            } catch (InterruptedIOException e) {
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                    th.start();
                     ServerRequest requestFromClient = (ServerRequest) getFromClient.readObject();
                     String commandRequest = requestFromClient.getCommand() + " " + requestFromClient.getArguments();
                     System.out.print("Получено [" + requestFromClient + "] от " + incoming + ". ");

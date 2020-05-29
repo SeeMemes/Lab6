@@ -11,13 +11,15 @@ public class RemoveLowerKey extends Command {
     }
 
     public LinkedHashMap<Integer, HumanBeing> execute (LinkedHashMap<Integer, HumanBeing> human, String command, HumanList humanList, String path, boolean b){
-        Set<Integer> keys = human.keySet();
-        List<Integer> listKeys = new ArrayList<Integer>(keys);
         StringTokenizer stringTokenizer = new StringTokenizer(command);
         stringTokenizer.nextToken();
+        int number = Integer.parseInt(stringTokenizer.nextToken());
+        human.keySet().removeIf(key -> key < number);
+        /*Set<Integer> keys = human.keySet();
+        List<Integer> listKeys = new ArrayList<Integer>(keys);
         for (int i = 0; i < listKeys.size(); i++)
-            if (listKeys.get(i) < Integer.parseInt(stringTokenizer.nextToken()))
-                human.remove(listKeys.get(i));
+            if (listKeys.get(i) < number)
+                human.remove(listKeys.get(i));*/
         return human;
     }
 }

@@ -70,7 +70,7 @@ public class HumanBeing {
     //public int getCoordinatesY() { return coordinates.getY(); }
     public void setCoordinatesY(int y) { coordinates.setY(y); }
 
-    @XmlElement
+    @XmlElement(name="creationDate_of_element")
     public String getCreationDate() { return creationDate.format(formatter); }
     public void setCreationDate() { this.creationDate = LocalDateTime.now(); }
 

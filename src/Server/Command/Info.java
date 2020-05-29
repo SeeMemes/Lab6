@@ -19,8 +19,7 @@ public class Info extends Command {
     }
 
     public String execute (LinkedHashMap<Integer, HumanBeing> human, String command, HumanList humanList, String path) {
-        String answer = "Type: LinkedHashMap\n" + "Initialization date: " + humanList.getCreationDate().format(formatter) + "\n"
+        return "Type: LinkedHashMap\n" + "Initialization date: " + humanList.getCreationDate() + "\n"
                 + "Number of elements: " + humanList.getHumanBeings().size();
-        return answer;
     }
 }

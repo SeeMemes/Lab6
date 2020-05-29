@@ -38,7 +38,7 @@ public class Insert extends Command {
             humanBeing.setImpactSpeed(Integer.parseInt(tokenizer.nextToken()));
 
             String str = tokenizer.nextToken();
-            switch (str){
+            switch (str.toUpperCase()){
                 case "HAMMER":
                     humanBeing.setWeaponType(WeaponType.HAMMER);
                     break;
@@ -57,7 +57,7 @@ public class Insert extends Command {
             }
 
             str = tokenizer.nextToken();
-            switch (str){
+            switch (str.toUpperCase()){
                 case "SADNESS":
                     humanBeing.setMood(Mood.SADNESS);
                     break;

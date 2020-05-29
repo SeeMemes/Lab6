@@ -121,6 +121,8 @@ public final class CollectionManager {
         return humanList;
     }
 
+    public void setCreationDate(){ humanList.setCreationDate(); }
+
     public void setHumans(List<HumanBeing> humanBeings) { this.humanList.setHumanBeings(humanBeings); }
 
     public List<HumanBeing> getHumanBeingList() {

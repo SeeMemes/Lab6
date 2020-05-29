@@ -11,6 +11,7 @@ package Server.MyOwnClasses;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,23 +19,24 @@ import java.util.List;
 public class HumanList {
     private List<HumanBeing> humanBeings = new ArrayList<HumanBeing>(); //список людей (HumanBeing)
     private java.time.LocalDateTime creationDate;
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
+    public void setCreationDate() { this.creationDate = LocalDateTime.now(); }
+
+    @XmlElement(name="creationDate")
+    public String getCreationDate() { return creationDate.format(formatter); }
+    public void setCreationDate (String Date){ this.creationDate = LocalDateTime.parse(Date, formatter);}
 
 
     @XmlElement(name="humanBeing")
     public List<HumanBeing> getHumanBeings() {  //getter для списка людей
         return humanBeings;
     }
-
-    public HumanBeing getHumanBeing(int i){ //getter для конкретного человека
-        return humanBeings.get(i);
-    }
-
     public void setHumanBeings(List<HumanBeing> humanBeings) {
         this.humanBeings = humanBeings;
     }
 
-    public void creationDate_Now() { this.creationDate = LocalDateTime.now(); }
-
-    public LocalDateTime getCreationDate() { return creationDate; }
+    public HumanBeing getHumanBeing(int i){ //getter для конкретного человека
+        return humanBeings.get(i);
+    }
 }

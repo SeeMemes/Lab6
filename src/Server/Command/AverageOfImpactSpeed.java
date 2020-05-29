@@ -17,9 +17,10 @@ public class AverageOfImpactSpeed extends Command {
     }
 
     public String execute (LinkedHashMap<Integer, HumanBeing> human, String command, HumanList humanList, String path){
-        int k = 0;
+        /*int k = 0;
         for (int i = 0; i < humanList.getHumanBeings().size(); i++)
-            k += humanList.getHumanBeing(i).getImpactSpeed();
-        return Integer.toString(k / humanList.getHumanBeings().size());
+            k += humanList.getHumanBeing(i).getImpactSpeed();*/
+        int sum = humanList.getHumanBeings().stream().mapToInt(i->i.getImpactSpeed()).sum();
+        return Integer.toString(sum / humanList.getHumanBeings().size());
     }
 }
