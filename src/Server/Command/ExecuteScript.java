@@ -2,7 +2,7 @@ package Server.Command;
 
 import Server.MyOwnClasses.HumanBeing;
 import Server.MyOwnClasses.HumanList;
-import Server.CommandShell;
+import Server.Old.CommandShell;
 import Server.Tools.Converter;
 
 import java.io.*;

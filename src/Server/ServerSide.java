@@ -11,7 +11,7 @@ public class ServerSide {
     * Точка входа в программу. Управляет подключением к клиентам и созданием потоков для каждого из них.
      * @param args массив по умолчанию в основном методе. Не используется здесь.
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         CollectionManager serverCollection;
         try{
             serverCollection = new CollectionManager(args[0]);

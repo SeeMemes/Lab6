@@ -5,21 +5,23 @@ import Server.MyOwnClasses.HumanBeing;
 import Server.MyOwnClasses.HumanList;
 import Client.ServerRequest;
 import Server.Tools.Converter;
+import sun.nio.ch.ChannelInputStream;
 
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.net.SocketException;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Objects;
-import java.util.Scanner;
-import java.util.logging.Logger;
+import java.nio.ByteBuffer;
+import java.nio.channels.*;
+import java.util.*;
+import java.io.IOException;
+
 
 /**
  * Класс {@code ServerConnection} представляет объект сервера, который манипулирует {@link CollectionManager}.
- * @author Артемий Кульбако
+ * @author Провоторов Александр
  * @version 1.2
- * @since 28.04.19
+ * @since 31.05.20
  */
 public class ServerConnection implements Runnable {
 
@@ -63,8 +65,10 @@ public class ServerConnection implements Runnable {
      */
     @Override
     public void run() {
+
         InputStreamReader reader = new InputStreamReader(System.in);
         BufferedReader bufferedReader = new BufferedReader(reader);
+
         try (ObjectInputStream getFromClient = new ObjectInputStream(incoming.getInputStream());
              ObjectOutputStream sendToClient = new ObjectOutputStream(incoming.getOutputStream())) {
             sendToClient.writeObject("Соединение установлено.\nВы можете вводить команды.");
@@ -76,9 +80,10 @@ public class ServerConnection implements Runnable {
             };
             while (true) {
                 try {
-                    Thread th = new Thread(() -> {
+                    /*Thread server_helper = new Thread(() -> {
                         while (true){
                             try {
+                                System.out.println("Command_in: ");
                                 String command = bufferedReader.readLine();
                                 if (command.toLowerCase().equals("save")) {
                                     Save save = new Save(serverCollection.getHuman(), "save", serverCollection.getHumans());
@@ -89,7 +94,8 @@ public class ServerConnection implements Runnable {
                                 else if (command.toLowerCase().equals("exit")) {
                                     commandList.get("you_cannot_save_from_client").execute();
                                     System.out.println("Завершение программы");
-                                    System.exit(0);
+                                    sendToClient.writeObject("Завершение работы сервера.");
+                                    System.exit(1);
                                 }
                             } catch (InterruptedIOException e) {
                             } catch (IOException e) {
@@ -97,29 +103,30 @@ public class ServerConnection implements Runnable {
                             }
                         }
                     });
-                    th.start();
+                    server_helper.start();*/
+
                     ServerRequest requestFromClient = (ServerRequest) getFromClient.readObject();
+
                     String commandRequest = requestFromClient.getCommand() + " " + requestFromClient.getArguments();
                     System.out.print("Получено [" + requestFromClient + "] от " + incoming + ". ");
                     String[] parsedCommand = commandRequest.trim().split(" ",2);
 
                     String response = "Команда " + commandList.getOrDefault(parsedCommand[0], errorCommand).getCommand() + " была выполнена";
                     String command_answer = "";
-                    try{
-                        LinkedHashMap<Integer, HumanBeing> humanMap = commandList.getOrDefault(parsedCommand[0], errorCommand).execute(
-                                serverCollection.getHuman(),commandRequest,
-                                serverCollection.getHumans(),serverCollection.getCollectionPath(), true);
-                        serverCollection.setHuman(humanMap);
-                        serverCollection.setHumans(Converter.convertToList(humanMap));
-                        String answer = response + " " + command_answer;
-                        sendToClient.writeObject(answer);
-                    } catch (ClassCastException e) {
-                        command_answer = commandList.getOrDefault(parsedCommand[0], errorCommand).execute(
-                                serverCollection.getHuman(),commandRequest,
-                                serverCollection.getHumans(),serverCollection.getCollectionPath());
-                        sendToClient.writeObject(response + " \n" + command_answer);
-                    }
-
+                        try {
+                            LinkedHashMap<Integer, HumanBeing> humanMap = commandList.getOrDefault(parsedCommand[0], errorCommand).execute(
+                                    serverCollection.getHuman(), commandRequest,
+                                    serverCollection.getHumans(), serverCollection.getCollectionPath(), true);
+                            serverCollection.setHuman(humanMap);
+                            serverCollection.setHumans(Converter.convertToList(humanMap));
+                            String answer = response + " " + command_answer;
+                            sendToClient.writeObject(answer);
+                        } catch (ClassCastException e) {
+                            command_answer = commandList.getOrDefault(parsedCommand[0], errorCommand).execute(
+                                    serverCollection.getHuman(), commandRequest,
+                                    serverCollection.getHumans(), serverCollection.getCollectionPath());
+                            sendToClient.writeObject(response + " \n" + command_answer);
+                        }
                     System.out.println("Ответ успешно отправлен.");
                 } catch (SocketException e) {
                     System.out.println(incoming + " отключился от сервера."); //Windows
@@ -131,7 +138,6 @@ public class ServerConnection implements Runnable {
             System.err.println(incoming + " отключился от сервера."); //Unix
         }
     }
-
 
     @Override
     public boolean equals(Object o) {

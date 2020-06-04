@@ -17,12 +17,6 @@ import java.util.*;
 
 import static Server.Tools.Checker.checkHumanList;
 
-/**
- * Класс {@code CollectionManager} обеспечивает доступ к коллекции.
- * @author Артемий Кульбако
- * @version 2.3
- * @since 24.04.19
- */
 public final class CollectionManager {
 
     private static HumanList humanList;

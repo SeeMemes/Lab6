@@ -13,7 +13,7 @@
 package Server.MyOwnClasses;
 
 import Server.Exceptions.HumanValueException;
-import Server.CommandShell;
+import Server.Old.CommandShell;
 import Server.Tools.Checker;
 import Server.Tools.Converter;
 import Server.Tools.FWriter;
